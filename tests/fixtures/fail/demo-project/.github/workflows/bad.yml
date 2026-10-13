@@ -1,0 +1,20 @@
+# 故意把所有坑都踩了 —— 用于验证检出能力
+name: Bad Workflow
+on: [pull_request_target]
+permissions: write-all
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Run tests
+        run: |
+          echo "PR title: ${{ github.event.pull_request.title }}"
+          npm test
+
+      - name: Debug token
+        run: echo "token=${{ secrets.DEPLOY_TOKEN }}"

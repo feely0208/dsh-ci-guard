@@ -1,0 +1,12 @@
+{
+  "id": "CI-WRITE-ALL",
+  "title": "workflow 权限设为 write-all",
+  "severity": "high",
+  "source": "GitHub Docs — Assigning permissions to jobs：最小权限原则",
+  "advice": "write-all 让该 workflow 里任何一步（含第三方 action）都能改仓库内容、发 release、改 settings。改成按需声明，例如 permissions: { contents: read }。",
+  "check": {
+    "type": "file-pattern",
+    "pattern": "permissions:\\s*(write-all|read-all)",
+    "paths": [".github/workflows/*", ".github/workflows/**"]
+  }
+}

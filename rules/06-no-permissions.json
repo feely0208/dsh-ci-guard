@@ -1,0 +1,13 @@
+{
+  "id": "CI-NO-PERMISSIONS",
+  "title": "workflow 未声明 permissions（继承仓库默认）",
+  "severity": "low",
+  "source": "GitHub Docs — Assigning permissions to jobs：未声明时继承仓库/组织默认，可能过宽",
+  "advice": "没写 permissions 不等于没权限 —— 会继承仓库设置里的默认值（历史上默认是读写）。显式声明 permissions: { contents: read } 更安全，也让审查者一眼看懂。",
+  "check": {
+    "type": "file-lacks",
+    "pattern": "permissions:",
+    "paths": [".github/workflows/*.yml", ".github/workflows/*.yaml"],
+    "evidence": "整个文件里没有 permissions: 声明"
+  }
+}

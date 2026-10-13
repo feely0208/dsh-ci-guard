@@ -1,0 +1,4 @@
+# @deepwhale-cn/dsh-ci-guard 的组合层
+- insert:
+    - id: ci-guard
+      name: '@deepwhale-cn/dsh-ci-guard'

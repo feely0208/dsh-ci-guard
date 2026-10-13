@@ -1,0 +1,8 @@
+{
+  "id": "CI-PR-TARGET",
+  "title": "使用 pull_request_target 触发",
+  "severity": "medium",
+  "source": "GitHub Docs — Events that trigger workflows: pull_request_target；GitHub Security Lab《Preventing pwn requests》",
+  "advice": "pull_request_target 在**目标仓库上下文**运行，能拿到 secrets，且默认有写权限。若后续 checkout 了 PR 的代码（ref: github.event.pull_request.head.sha）并执行其中的脚本，外部贡献者可直接窃取 secrets。若只是打标签/评论、不 checkout PR 代码，则风险可控 —— 请人工确认。",
+  "check": { "type": "file-pattern", "pattern": "pull_request_target", "paths": [".github/workflows/*", ".github/workflows/**"] }
+}

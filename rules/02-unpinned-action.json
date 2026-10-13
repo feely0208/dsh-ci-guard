@@ -1,0 +1,12 @@
+{
+  "id": "CI-UNPINNED-ACTION",
+  "title": "Action 未锁定版本（用 @main / @master）",
+  "severity": "high",
+  "source": "GitHub Docs — Security hardening for GitHub Actions: pinning to a full-length commit SHA",
+  "advice": "用 @main/@master 意味着 action 作者推送任何代码都会立刻在你的 CI 里执行 —— 上游被投毒时你就是受害者。改成完整 commit SHA（如 actions/checkout@8f4b7f8...），而不是 tag 或分支。",
+  "check": {
+    "type": "file-pattern",
+    "pattern": "uses:\\s*[\\w.-]+/[\\w.-]+@(main|master|latest|HEAD)\\b",
+    "paths": [".github/workflows/*", ".github/workflows/**"]
+  }
+}
