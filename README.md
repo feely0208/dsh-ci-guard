@@ -1,5 +1,7 @@
 # @deepwhale-cn/dsh-ci-guard
 
+[![Listed on dsh-plugin.org](https://dsh-plugin.org/badges/listed.svg)](https://dsh-plugin.org/plugins/feely0208/dsh-ci-guard)
+
 **CI 工作流安全** —— 扫 GitHub Actions，找出可被外部利用的配置。
 
 ## 不装它会怎样
