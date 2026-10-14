@@ -41,7 +41,11 @@ dsh-ci-guard --list-rules    # 列出规则和依据
 dsh-ci-guard --html r.html   # HTML 报告
 ```
 
-![dsh-ci-guard 的检查报告示例](https://www.deepwhale.org.cn/plugin-assets/dsh-ci-guard/report.png)
+![dsh-ci-guard 检查报告示例](https://www.deepwhale.org.cn/plugin-assets/dsh-ci-guard/report.png)
+
+![dsh-ci-guard 演示模式输出](https://www.deepwhale.org.cn/plugin-assets/dsh-ci-guard/demo.png)
+
+![dsh-ci-guard 规则与依据](https://www.deepwhale.org.cn/plugin-assets/dsh-ci-guard/rules.png)
 
 ## 判据来源
 
