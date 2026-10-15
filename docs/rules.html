@@ -1,0 +1,55 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; background:#0d0f13; display:flex; justify-content:center;
+         align-items:flex-start; padding:22px; font-family:-apple-system,"PingFang SC",
+         "Helvetica Neue",sans-serif; }
+  .win { width:1180px; border-radius:11px; overflow:hidden;
+          box-shadow:0 14px 44px rgba(0,0,0,.55); }
+  .bar { background:#2a2d34; padding:11px 15px; display:flex; align-items:center; gap:9px; }
+  .dot { width:12px; height:12px; border-radius:50%; }
+  .t { margin-left:11px; color:#7a8290; font-size:13px; letter-spacing:.02em; }
+  .term { background:#1b1d22; padding:20px 22px 24px; font-family:"SF Mono",Menlo,Consolas,
+           "PingFang SC",monospace; font-size:13.5px; line-height:1.72; }
+  .cmd { color:#5ee08a; margin-bottom:13px; font-size:13.5px; }
+  .cmd b { color:#fff; font-weight:600; }
+  .l { white-space:pre-wrap; word-break:break-word; }
+</style></head><body>
+  <div class="win">
+    <div class="bar">
+      <span class="dot" style="background:#ff5f57"></span>
+      <span class="dot" style="background:#febc2e"></span>
+      <span class="dot" style="background:#28c840"></span>
+      <span class="t">dsh-ci-guard · rules</span>
+    </div>
+    <div class="term">
+      <div class="cmd">$ <b>dsh-ci-guard --list-rules</b></div>
+      <div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#d8dee9">  深鲸守护 · CI 工作流安全 —— 6 条规则</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#d8dee9">  [medium] CI-PR-TARGET</span></div>
+<div class="l"><span style="color:#d8dee9">        使用 pull_request_target 触发</span></div>
+<div class="l"><span style="color:#7a8290">        依据：GitHub Docs — Events that trigger workflows: pull_request_target；GitHub Security Lab《Preventing pwn requests》</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#d8dee9">  [high] CI-UNPINNED-ACTION</span></div>
+<div class="l"><span style="color:#d8dee9">        Action 未锁定版本（用 @main / @master）</span></div>
+<div class="l"><span style="color:#7a8290">        依据：GitHub Docs — Security hardening for GitHub Actions: pinning to a full-length commit SHA</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#d8dee9">  [high] CI-WRITE-ALL</span></div>
+<div class="l"><span style="color:#d8dee9">        workflow 权限设为 write-all</span></div>
+<div class="l"><span style="color:#7a8290">        依据：GitHub Docs — Assigning permissions to jobs：最小权限原则</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#d8dee9">  [high] CI-SECRET-ECHO</span></div>
+<div class="l"><span style="color:#d8dee9">        在 run 里直接输出 secrets</span></div>
+<div class="l"><span style="color:#7a8290">        依据：GitHub Docs — Security hardening for GitHub Actions: 永远不要把 secrets 打印到日志</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#d8dee9">  [high] CI-SCRIPT-INJECTION</span></div>
+<div class="l"><span style="color:#d8dee9">        run 里直接插值外部可控输入（脚本注入）</span></div>
+<div class="l"><span style="color:#7a8290">        依据：GitHub Security Lab《Script injections in GitHub Actions》—— 攻击者可通过 PR 标题/分支名注入 shell 命令</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#d8dee9">  [low] CI-NO-PERMISSIONS</span></div>
+<div class="l"><span style="color:#d8dee9">        workflow 未声明 permissions（继承仓库默认）</span></div>
+<div class="l"><span style="color:#7a8290">        依据：GitHub Docs — Assigning permissions to jobs：未声明时继承仓库/组织默认，可能过宽</span></div>
+    </div>
+  </div>
+</body></html>
