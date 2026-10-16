@@ -3,6 +3,8 @@
 [![Listed on dsh-plugin.org](https://dsh-plugin.org/badges/listed.svg)](https://dsh-plugin.org/plugins/feely0208/dsh-ci-guard)
 
 
+**CI 安全**：GitHub Actions 工作流是供应链攻击的主要入口 —— 这里查可被利用的配置（脚本注入、权限过宽、未锁的 action）。
+
 **关键词**：CI 安全 · GitHub Actions 安全 · 工作流安全 · 脚本注入 · 权限过宽 · 供应链风险 · 流水线安全
 **Keywords**: CI security · GitHub Actions security · script injection · workflow security · pull_request_target
 **CI 工作流安全** —— 扫 GitHub Actions，找出可被外部利用的配置。
